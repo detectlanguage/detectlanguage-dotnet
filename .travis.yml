@@ -1,0 +1,13 @@
+language: csharp
+
+mono: none
+
+dotnet: 2.1.502
+
+install: dotnet restore
+
+script: dotnet test
+
+env:
+  global:
+    secure: qLERKBKUfM8B3GJHg8EpPi7Z7bvec2q0WTm7aODdI1ATE2YzYMHs4U5zWjeCIF6V4e/p+JGFjoEyiFdCOBEyf9GR4ILLnttDensZdt06npoA+kDZ/ZGdwouKGfnSdg7s5KUizYQ95X2frHcd3I3qpxU9SGy+AXG0S309JKzCeg6ZzPBG+Efa9ImKVLcungbDvqYLgwlyUiAER+w2vIkysDoRFl3+/jhjLscBOWTMGgCq8VvyBA9lUPc1BfYrTZnttlKgRy63v42T2VGiXx2iRpvDb3YjiaiubPeFbzwF81IzDmcdoXFwh7JDayQbmyfzC/9+/vbHXqCM0mPUEEx6iAkGso7nkBm+wy98obNLx3C/rwgc0i6+lqhEN4jUxq/mUwO8Q8qQ/59bgyBAvzUNIL3cECK/Ccen9/8+cIORtKWZm0PHHQ+Z+DOrxuWBYsgtuwCspQFPNw3zYHXw+IzH7+k+4S100Kt4h4+xKhRGlbhVFr8sUmZqwfLtXEb5SV5mjTUBsRLBOsJXZVGGM5ijeKeeqGDzTW+sKbFJUFYBc8ld5hsAYCqSlP00OEV61m9Fmxqp51WlRphHuXx9tV7lwiMHDpLbTbOuel2UzGjbTsFz7xne0ZbWIInPkKobYIYy4WOF38JMBBqPVAVuZDQeKMR+33So59H773gDaZBMSn0=

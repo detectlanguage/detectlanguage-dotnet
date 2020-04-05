@@ -1,12 +1,14 @@
 language: csharp
 
+dotnet:
+  - 2.2
+  - 2.1
+
 mono: none
 
-dotnet: 2.1.502
-
-install: dotnet restore
-
-script: dotnet test
+script:
+  - dotnet restore
+  - dotnet test
 
 env:
   global:

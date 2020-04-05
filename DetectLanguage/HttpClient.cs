@@ -19,28 +19,48 @@ namespace DetectLanguage {
         public async Task<T> GetAsync<T>(string path) {
             var response = await httpClient.GetAsync(path);
 
-            return await handleResponse<T>(response);
+            return await HandleResponse<T>(response);
         }
 
         public async Task<T> PostAsync<T>(string path, object request) {
-            var response = await httpClient.PostAsync(path, buildContent(request));
+            var response = await httpClient.PostAsync(path, BuildContent(request));
 
-            return await handleResponse<T>(response);
+            return await HandleResponse<T>(response);
         }
 
-        private static async Task<T> handleResponse<T>(HttpResponseMessage response) {
-            response.EnsureSuccessStatusCode();
-
-            var content = await response.Content.ReadAsStringAsync();
-
-            return JsonConvert.DeserializeObject<T>(content);
-        }
-
-        private static HttpContent buildContent(object request) {
+        private static HttpContent BuildContent(object request) {
             return new StringContent(
                 JsonConvert.SerializeObject(request),
                 Encoding.UTF8,
                 "application/json");
+        }
+
+        private static async Task<T> HandleResponse<T>(HttpResponseMessage response) {
+            var content = await response.Content.ReadAsStringAsync();
+
+            try {
+                response.EnsureSuccessStatusCode();
+
+                return JsonConvert.DeserializeObject<T>(content);
+            } catch (HttpRequestException) {
+                throw BuildException(response, content);
+            } catch (JsonSerializationException) {
+                throw BuildInvalidResponseException(response, content);
+            }
+        }
+
+        private static DetectLanguageException BuildException(HttpResponseMessage response, string content) {
+            try {
+                var errorResponse = JsonConvert.DeserializeObject<ErrorResponse>(content);
+
+                return new DetectLanguageException(response.StatusCode, errorResponse.error, response);
+            } catch (JsonSerializationException) {
+                throw BuildInvalidResponseException(response, content);
+            }
+        }
+
+        private static DetectLanguageException BuildInvalidResponseException(HttpResponseMessage response, string content) {
+            return new DetectLanguageException(response.StatusCode, $"Invalid response: {content}", response);
         }
     }
 }

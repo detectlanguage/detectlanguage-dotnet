@@ -73,5 +73,15 @@ namespace DetectLanguageTests
             Assert.That(userStatus.bytes, Is.GreaterThanOrEqualTo(0));
             Assert.That(userStatus.requests, Is.GreaterThanOrEqualTo(0));
         }
+
+        [Test]
+        public void TestGetUserStatusAsyncError() {
+            var testClient = new Client("someApiKey");
+            var ex = Assert.ThrowsAsync<DetectLanguageException>(() => testClient.GetUserStatusAsync());
+
+            Assert.IsNotEmpty(ex.Message);
+            Assert.IsNotNull(ex.Error);
+            Assert.IsNotNull(ex.Response);
+        }
     }
 }

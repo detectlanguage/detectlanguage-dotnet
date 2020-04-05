@@ -19,6 +19,16 @@ namespace DetectLanguage {
         public async Task<T> GetAsync<T>(string path) {
             var response = await httpClient.GetAsync(path);
 
+            return await handleResponse<T>(response);
+        }
+
+        public async Task<T> PostAsync<T>(string path, object request) {
+            var response = await httpClient.PostAsync(path, buildContent(request));
+
+            return await handleResponse<T>(response);
+        }
+
+        private static async Task<T> handleResponse<T>(HttpResponseMessage response) {
             response.EnsureSuccessStatusCode();
 
             var content = await response.Content.ReadAsStringAsync();
@@ -26,16 +36,11 @@ namespace DetectLanguage {
             return JsonConvert.DeserializeObject<T>(content);
         }
 
-        public async Task<T> PostAsync<T>(string path, object request) {
-            var json = JsonConvert.SerializeObject(request);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync(path, content);
-
-            response.EnsureSuccessStatusCode();
-
-            var responseContent = await response.Content.ReadAsStringAsync();
-
-            return JsonConvert.DeserializeObject<T>(responseContent);
+        private static HttpContent buildContent(object request) {
+            return new StringContent(
+                JsonConvert.SerializeObject(request),
+                Encoding.UTF8,
+                "application/json");
         }
     }
 }

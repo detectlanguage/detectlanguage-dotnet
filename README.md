@@ -79,13 +79,13 @@ DetectResult[][] results = await client.BatchDetectAsync(texts);
 ### Getting your account status
 
 ```c#
-UserStatus userStatus = client.GetUserStatusAsync();
+UserStatus userStatus = await client.GetUserStatusAsync();
 ```
 
 ### Getting list supported languages
 
 ```c#
-Language[] languages = client.GetLanguagesAsync();
+Language[] languages = await client.GetLanguagesAsync();
 ```
 
 ## License

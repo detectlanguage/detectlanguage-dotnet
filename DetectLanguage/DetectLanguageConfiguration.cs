@@ -5,7 +5,7 @@ namespace DetectLanguage {
     /// <summary>
     /// Provides configuration options for the client
     /// </summary>
-    public class Configuration {
+    public class DetectLanguageConfiguration {
         /// <summary>
         /// The API key. Get it for free at https://detectlanguage.com
         /// </summary>
@@ -37,7 +37,7 @@ namespace DetectLanguage {
         /// Create an Configuration instance
         /// </summary>
         /// <param name="apiKey">The API key to use for the client connection. Get it for free at https://detectlanguage.com</param>
-        public Configuration(string apiKey) {
+        public DetectLanguageConfiguration(string apiKey) {
             ApiKey = apiKey;
         }
     }

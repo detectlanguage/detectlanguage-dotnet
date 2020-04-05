@@ -5,17 +5,17 @@ using System.Threading.Tasks;
 
 namespace DetectLanguageTests
 {
-    public class ClientTest {
-        private Client client;
+    public class DetectLanguageClientTest {
+        private DetectLanguageClient client;
 
         [SetUp]
         public void SetUp() {
-            client = new Client(Environment.GetEnvironmentVariable("DETECTLANGUAGE_API_KEY"));
+            client = new DetectLanguageClient(Environment.GetEnvironmentVariable("DETECTLANGUAGE_API_KEY"));
         }
 
         [Test]
         public void TestConstructor() {
-            var testClient = new Client("someApiKey");
+            var testClient = new DetectLanguageClient("someApiKey");
             Assert.AreEqual("someApiKey", testClient.configuration.ApiKey);
         }
 
@@ -76,7 +76,7 @@ namespace DetectLanguageTests
 
         [Test]
         public void TestGetUserStatusAsyncError() {
-            var testClient = new Client("someApiKey");
+            var testClient = new DetectLanguageClient("someApiKey");
             var ex = Assert.ThrowsAsync<DetectLanguageException>(() => testClient.GetUserStatusAsync());
 
             Assert.IsNotEmpty(ex.Message);

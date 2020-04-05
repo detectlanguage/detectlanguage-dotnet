@@ -44,7 +44,9 @@ For a comprehensive list of examples, check out the [API documentation][api-docs
 ### Configuration
 
 ```c#
-DetectLanguage.Client client = new DetectLanguage.Client("YOUR API KEY");
+using DetectLanguage;
+
+DetectLanguageClient client = new DetectLanguageClient("YOUR API KEY");
 ```
 
 ## Usage

@@ -3,11 +3,11 @@ using DetectLanguage;
 
 namespace DetectLanguageTests
 {
-    public class ConfigurationTest {
+    public class DetectLanguageConfigurationTest {
 
         [Test]
         public void TestApiKeyConstructor() {
-            Configuration config = new Configuration("someApiKey");
+            var config = new DetectLanguageConfiguration("someApiKey");
 
             Assert.That(config.ApiKey, Is.EqualTo("someApiKey"));
             Assert.That(config.ApiBase, Is.EqualTo("https://ws.detectlanguage.com/0.2/"));

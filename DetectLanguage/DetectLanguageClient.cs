@@ -1,24 +1,23 @@
 using System.Threading.Tasks;
-using System.Net.Http;
 
 namespace DetectLanguage {
-    public class Client {
-        public Configuration configuration;
-        public HttpClient httpClient;
+    public class DetectLanguageClient {
+        public DetectLanguageConfiguration configuration;
+        public DetectLanguageHttpClient httpClient;
 
         /// <summary>
         /// Initializes new instance of the API client class.
         /// </summary>
         /// <param name="apiKey">The API key to use for the client connection. Get it for free at https://detectlanguage.com</param>
-        public Client(string apiKey) : this(new Configuration(apiKey)) { }
+        public DetectLanguageClient(string apiKey) : this(new DetectLanguageConfiguration(apiKey)) { }
 
         /// <summary>
         /// Initializes new instance of the API client class.
         /// </summary>
         /// <param name="configuration">Configuration class instance</param>
-        public Client(Configuration configuration) {
+        public DetectLanguageClient(DetectLanguageConfiguration configuration) {
             this.configuration = configuration;
-            httpClient = new HttpClient(configuration);
+            httpClient = new DetectLanguageHttpClient(configuration);
         }
 
         /// <summary>

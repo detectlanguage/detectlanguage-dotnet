@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace DetectLanguage {
-    public class HttpClient {
-        private System.Net.Http.HttpClient httpClient;
+    public class DetectLanguageHttpClient {
+        private HttpClient httpClient;
 
-        public HttpClient(Configuration configuration) {
-            httpClient = new System.Net.Http.HttpClient();
+        public DetectLanguageHttpClient(DetectLanguageConfiguration configuration) {
+            httpClient = new HttpClient();
             httpClient.BaseAddress = new Uri(configuration.ApiBase);
             httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
             httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {configuration.ApiKey}");

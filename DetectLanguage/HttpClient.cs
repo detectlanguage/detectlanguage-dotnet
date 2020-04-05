@@ -13,6 +13,7 @@ namespace DetectLanguage {
             httpClient.BaseAddress = new Uri(configuration.ApiBase);
             httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
             httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {configuration.ApiKey}");
+            httpClient.DefaultRequestHeaders.Add("User-Agent", configuration.UserAgent);
         }
 
         public async Task<T> GetAsync<T>(string path) {

@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace DetectLanguage.Models {
+namespace DetectLanguage {
     public class UserStatus {
         public string date;
         public string status;

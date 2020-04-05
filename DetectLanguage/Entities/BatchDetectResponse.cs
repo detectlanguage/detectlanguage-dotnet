@@ -1,5 +1,5 @@
 
-namespace DetectLanguage.Models {
+namespace DetectLanguage {
     public class BatchDetectResponse {
         public BatchDetectData data;
     }

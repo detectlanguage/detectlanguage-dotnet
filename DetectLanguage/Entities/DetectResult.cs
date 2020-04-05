@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace DetectLanguage.Models {
+namespace DetectLanguage {
     public class DetectResult {
         public string language;
 

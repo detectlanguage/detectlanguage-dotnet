@@ -1,12 +1,9 @@
-Language Detection API Client for .NET (Official Library)
+Language Detection API Client for .NET
 ========
 
 [![Build Status](https://secure.travis-ci.org/detectlanguage/detectlanguage-dotnet.svg)](https://travis-ci.org/detectlanguage/detectlanguage-dotnet)
 
 Detects language of the given text. Returns detected language codes and scores.
-
-Before using Detect Language API client you have to setup your personal API key.
-You can get it for free by signing up at https://detectlanguage.com
 
 ## Installation
 
@@ -41,7 +38,10 @@ From within Visual Studio:
 
 For a comprehensive list of examples, check out the [API documentation][api-docs].
 
-### Configuration
+## Configuration
+
+Before using Detect Language API client you have to setup your personal API key.
+You can get it for free by signing up at https://detectlanguage.com
 
 ```c#
 using DetectLanguage;

@@ -10,7 +10,7 @@
     <Company>detectlanguage.com</Company>
     <PackageProjectUrl>https://github.com/detectlanguage/detectlanguage-dotnet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/detectlanguage/detectlanguage-dotnet</RepositoryUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/detectlanguage/detectlanguage-dotnet/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIconUrl>https://www.nuget.org/profiles/detectlanguage/avatar?imageSize=128</PackageIconUrl>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>

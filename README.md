@@ -1,4 +1,4 @@
-Language Detection API Client for .NET
+Detect Language API Client for .NET
 ========
 
 [![NuGet](https://img.shields.io/nuget/v/detectlanguage.svg)](https://www.nuget.org/packages/DetectLanguage/)

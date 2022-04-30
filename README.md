@@ -2,7 +2,7 @@ Detect Language API Client for .NET
 ========
 
 [![NuGet](https://img.shields.io/nuget/v/detectlanguage.svg)](https://www.nuget.org/packages/DetectLanguage/)
-[![Build Status](https://secure.travis-ci.org/detectlanguage/detectlanguage-dotnet.svg)](https://travis-ci.org/detectlanguage/detectlanguage-dotnet)
+[![Build Status](https://github.com/detectlanguage/detectlanguage-dotnet/actions/workflows/main.yml/badge.svg)](https://github.com/detectlanguage/detectlanguage-dotnet/actions)
 
 Detects language of the given text. Returns detected language codes and scores.
 

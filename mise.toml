@@ -1,5 +1,5 @@
 [tools]
-dotnet = "6"
+dotnet = "9.0"
 
 [env]
 _.file = ".env.local"

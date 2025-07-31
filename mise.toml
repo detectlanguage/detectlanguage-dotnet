@@ -1,5 +1,5 @@
 [tools]
-dotnet = "2.2"
+dotnet = "8"
 
 [env]
 _.file = ".env.local"

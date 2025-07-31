@@ -1,0 +1,8 @@
+[tools]
+dotnet = "2.2"
+
+[env]
+_.file = ".env.local"
+
+[tasks]
+test = "dotnet test"

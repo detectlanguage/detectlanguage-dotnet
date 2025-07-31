@@ -28,9 +28,7 @@ namespace DetectLanguage {
         /// <exception cref="DetectLanguageException">Thrown if the request fails.</exception>
         public async Task<DetectResult[]> DetectAsync(string text) {
             var request = new DetectRequest{ q = text };
-            var response = await httpClient.PostAsync<DetectResponse>("detect", request);
-
-            return response.data.detections;
+            return await httpClient.PostAsync<DetectResult[]>("detect", request);
         }
 
         /// <summary>
@@ -56,9 +54,7 @@ namespace DetectLanguage {
         /// <exception cref="DetectLanguageException">Thrown if the request fails.</exception>
         public async Task<DetectResult[][]> BatchDetectAsync(string[] texts) {
             var request = new BatchDetectRequest{ q = texts };
-            var response = await httpClient.PostAsync<BatchDetectResponse>("detect", request);
-
-            return response.data.detections;
+            return await httpClient.PostAsync<DetectResult[][]>("detect-batch", request);
         }
 
         /// <summary>
@@ -66,7 +62,7 @@ namespace DetectLanguage {
         /// </summary>
         /// <exception cref="DetectLanguageException">Thrown if the request fails.</exception>
         public async Task<UserStatus> GetUserStatusAsync() {
-            return await httpClient.GetAsync<UserStatus>("user/status");
+            return await httpClient.GetAsync<UserStatus>("account/status");
         }
 
         /// <summary>

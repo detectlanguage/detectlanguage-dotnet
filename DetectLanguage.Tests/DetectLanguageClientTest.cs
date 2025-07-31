@@ -24,8 +24,7 @@ namespace DetectLanguageTests
             var results = await client.DetectAsync("Labas rytas");
 
             Assert.That(results[0].language, Is.EqualTo("lt"));
-            Assert.That(results[0].reliable, Is.EqualTo(true));
-            Assert.That(results[0].confidence, Is.GreaterThan(0));
+            Assert.That(results[0].score, Is.GreaterThan(0));
         }
 
         [Test]
@@ -37,7 +36,7 @@ namespace DetectLanguageTests
 
         [Test]
         public async Task TestDetectCodeAsyncNull() {
-            string language = await client.DetectCodeAsync("-");
+            string language = await client.DetectCodeAsync(" ");
 
             Assert.IsNull(language);
         }
@@ -48,8 +47,7 @@ namespace DetectLanguageTests
             var results = await client.BatchDetectAsync(texts);
 
             Assert.That(results[0][0].language, Is.EqualTo("en"));
-            Assert.That(results[0][0].reliable, Is.EqualTo(true));
-            Assert.That(results[0][0].confidence, Is.GreaterThan(0));
+            Assert.That(results[0][0].score, Is.GreaterThan(0));
             Assert.That(results[1][0].language, Is.EqualTo("lt"));
         }
 
@@ -58,7 +56,7 @@ namespace DetectLanguageTests
             var languages = await client.GetLanguagesAsync();
 
             Assert.That(languages[0].code, Is.EqualTo("aa"));
-            Assert.That(languages[0].name, Is.EqualTo("AFAR"));
+            Assert.That(languages[0].name, Is.EqualTo("Afar"));
         }
 
         [Test]

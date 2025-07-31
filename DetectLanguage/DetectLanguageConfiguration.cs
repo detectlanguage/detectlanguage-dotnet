@@ -14,7 +14,7 @@ namespace DetectLanguage {
         /// <summary>
         /// The API base URI to use on a per-request basis
         /// </summary>
-        public string ApiBase { get; set; } = "https://ws.detectlanguage.com/0.2/";
+        public string ApiBase { get; set; } = "https://ws.detectlanguage.com/v3/";
 
         /// <summary>
         /// HTTP request timeout

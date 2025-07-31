@@ -16,11 +16,14 @@ jobs:
           - '9.0'
     name: .NET ${{ matrix.dotnet-version }} sample
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-dotnet@v2
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      - run: dotnet restore
-      - env:
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Run tests
+        env:
           DETECTLANGUAGE_API_KEY: ${{ secrets.DETECTLANGUAGE_API_KEY }}
         run: dotnet test

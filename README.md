@@ -55,7 +55,7 @@ DetectLanguageClient client = new DetectLanguageClient("YOUR API KEY");
 ### Language detection
 
 ```c#
-DetectResult[] results = await client.DetectAsync("Buenos dias señor");
+DetectResult[] results = await client.DetectAsync("Dolce far niente");
 ```
 
 ### Single language code detection
@@ -63,7 +63,7 @@ DetectResult[] results = await client.DetectAsync("Buenos dias señor");
 If you need just a language code you can use `DetectCodeAsync`. It returns first detected language code.
 
 ```c#
-string languageCode = await client.DetectCodeAsync("Buenos dias señor");
+string languageCode = await client.DetectCodeAsync("Dolce far niente");
 ```
 
 ### Batch detection
@@ -80,7 +80,7 @@ DetectResult[][] results = await client.BatchDetectAsync(texts);
 ### Getting your account status
 
 ```c#
-UserStatus userStatus = await client.GetUserStatusAsync();
+AccountStatus accountStatus = await client.GetAccountStatusAsync();
 ```
 
 ### Getting list supported languages

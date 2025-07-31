@@ -61,8 +61,8 @@ namespace DetectLanguage {
         /// Get account status
         /// </summary>
         /// <exception cref="DetectLanguageException">Thrown if the request fails.</exception>
-        public async Task<UserStatus> GetUserStatusAsync() {
-            return await httpClient.GetAsync<UserStatus>("account/status");
+        public async Task<AccountStatus> GetAccountStatusAsync() {
+            return await httpClient.GetAsync<AccountStatus>("account/status");
         }
 
         /// <summary>

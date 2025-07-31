@@ -60,8 +60,8 @@ namespace DetectLanguageTests
         }
 
         [Test]
-        public async Task TestGetUserStatusAsync() {
-            var userStatus = await client.GetUserStatusAsync();
+        public async Task TestGetAccountStatusAsync() {
+            var userStatus = await client.GetAccountStatusAsync();
 
             Assert.IsNotEmpty(userStatus.date);
             Assert.IsNotEmpty(userStatus.plan);
@@ -73,9 +73,9 @@ namespace DetectLanguageTests
         }
 
         [Test]
-        public void TestGetUserStatusAsyncError() {
+        public void TestGetAccountStatusAsyncError() {
             var testClient = new DetectLanguageClient("someApiKey");
-            var ex = Assert.ThrowsAsync<DetectLanguageException>(() => testClient.GetUserStatusAsync());
+            var ex = Assert.ThrowsAsync<DetectLanguageException>(() => testClient.GetAccountStatusAsync());
 
             Assert.IsNotEmpty(ex.Message);
             Assert.IsNotNull(ex.Error);

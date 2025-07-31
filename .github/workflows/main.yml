@@ -21,6 +21,16 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Install SSL dependencies (for older .NET versions)
+        if: matrix.dotnet-version == '2.2' || matrix.dotnet-version == '3.0' || matrix.dotnet-version == '3.1' || matrix.dotnet-version == '5.0'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libssl1.1
+      - name: Set SSL environment variables (for older .NET versions)
+        if: matrix.dotnet-version == '2.2' || matrix.dotnet-version == '3.0' || matrix.dotnet-version == '3.1' || matrix.dotnet-version == '5.0'
+        run: |
+          echo "DOTNET_SYSTEM_NET_HTTP_USESOCKETSHTTPHANDLER=0" >> $GITHUB_ENV
+          echo "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1" >> $GITHUB_ENV
       - name: Restore dependencies
         run: dotnet restore
       - name: Run tests

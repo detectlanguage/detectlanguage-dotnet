@@ -35,6 +35,10 @@ From within Visual Studio:
 5. Click on the DetectLanguage package, select the appropriate version in the
    right-tab and click *Install*.
 
+### Upgrading
+
+When upgrading please check [changelog](CHANGELOG.md) for breaking changes.
+
 ## Documentation
 
 For a comprehensive list of examples, check out the [API documentation][api-docs].

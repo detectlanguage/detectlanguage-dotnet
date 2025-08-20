@@ -8,14 +8,8 @@ namespace DetectLanguage {
         public string language;
 
         /// <summary>
-        /// Is detection reliable
+        /// Detection score (0-1)
         /// </summary>
-        [JsonProperty("isReliable")]
-        public bool reliable;
-
-        /// <summary>
-        /// Detection confidence score
-        /// </summary>
-        public float confidence;
+        public float score;
     }
 }

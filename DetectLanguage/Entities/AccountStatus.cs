@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 
 namespace DetectLanguage {
-    public class UserStatus {
+    public class AccountStatus {
         /// <summary>
         /// Current date
         /// </summary>
